@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root to: 'article#index'
+  root to: 'articles#index'
 end
