@@ -12,6 +12,14 @@
   </div>
 
   <div class='article-info'>
+    <h3 class='article-tag'>
+      <%@article.tags.each do |tag| %>
+        #<%=tag.name%>
+      <%end%>
+    </h3>
+  </div>
+
+  <div class='article-info'>
     <h3 class='article-name'>
       <%= @article.title %>
     </h3>
