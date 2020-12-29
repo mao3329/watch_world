@@ -1,1 +1,66 @@
-Home
+<%= render 'layouts/header' %>
+
+<main class="main-contents">
+
+  <div class="main-top">
+    <% unless user_signed_in? %>
+      <div class="introduction">
+        <%= image_tag 'introduction.png', class: "catchphrase" %>
+      </div>
+    <% else %>
+      <div class="introduction">
+        <%= image_tag 'introduction.png', class: "catchphrase" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="main-middle">
+
+    <div class="main-center">
+      <div class="contents-tags">
+        <%= link_to 'Trend', '#', class: "tag" %>
+        <%= link_to 'New', '#', class: "tag" %>
+        <%= link_to 'Music', '#', class: "tag" %>
+        <%= link_to 'MAG', '#', class: "tag" %>
+        <%= link_to 'Sports', '#', class: "tag" %>
+        <%= link_to 'IT', '#', class: "tag" %>
+        <%= link_to 'Science', '#', class: "tag" %>
+        <%= link_to 'Other', '#', class: "tag" %>
+      </div>
+      <% if @articles.present?%>
+        <div class="article-lists">
+          <% @articles.each do |article| %>
+            <div class="article-list">
+              <div class="article-left">
+                <%= image_tag article.image, class: "article-img" if article.image.attached? %>
+              </div>
+              <div class="article-right">
+                <%= link_to article.title, article_path(article.id), class: "article-title" %>
+                <div class="article-day">
+                  <%= article.created_at %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      <% else %>
+        <ul class="article-lists">
+          <li class='list'>
+              <%= link_to '#' do %>
+                <div class='article-img-contents'>
+                  <%= image_tag 'spicewolf.jpg', class: "article-img" %>
+                </div>
+
+                <div class='article-info'>
+                  <h3 class='article-name'>
+                    ポートフォリオサイト
+                  </h3>
+                </div>
+              <% end %>
+            </li>
+          </ul>
+      <% end %>
+    </div>
+
+  </main>

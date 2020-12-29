@@ -1,0 +1,47 @@
+<%= render 'layouts/header' %>
+
+<li class='list'>
+
+  <% if user_signed_in? && current_user.id == @article.user_id %>
+    <%= link_to '編集', edit_article_path(@article.id) %>
+    <%= link_to '削除', article_path(@article.id), method: :delete %>
+  <% end %>
+
+  <div class='article-img-content'>
+    <%= image_tag @article.image, class: "article-img" if @article.image.attached? %>
+  </div>
+
+  <div class='article-info'>
+    <h3 class='article-name'>
+      <%= @article.title %>
+    </h3>
+  </div>
+  <div class='article-info'>
+    <h3 class='article-text'>
+      <%= @article.text %>
+    </h3>
+  </div>
+
+  <% if user_signed_in? && current_user.id != @article.user_id %>
+    <%= form_with model: @comment, url: article_comments_path(@article.id), local: true do |f| %>
+      <%= f.text_field :text %>
+      <%= f.submit%>
+    <% end %>
+  <% end %>
+
+
+
+  <% if @comments.present?%>
+
+    <% @comments.each do |comment| %>
+      <li class='list'>
+        <div class='comment-info'>
+          <h3 class='comment-name'>
+            <%= comment.text %>
+          </h3>
+        </div>
+      </li>
+    <% end %>
+
+  <% end %>
+</li> 
