@@ -1,0 +1,128 @@
+.header {
+  font-family: "arial narrow", "メイリオ";
+  max-width: 100vw;
+  padding: 1vh 2vw;
+  display: flex;
+  background-image: url('header.png');
+  background-size: 100% auto;
+  .header-left {
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    .logo-icon {
+      width: 18vw;
+    }
+  }
+  .header-center {
+    width: 72vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1vw;
+    .contents {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      .content-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        margin-left: 2vw;
+        .content-img {
+          width: 2vw;
+        }
+        .content-name {
+          font-size: 2vw;
+          color: white;
+          margin-left: 2px;
+        }
+      }
+      .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 2vw;
+        .search-form {
+          position: relative;
+          box-sizing: border-box;
+          border: 2px solid #000000;
+          padding: 3px 10px;
+          border-radius: 3px;
+          height: 2.3em;
+          width: 300px;
+          overflow: hidden;
+          background-color: white;
+          .search-box {
+            background-color: transparent;
+            border: none;
+            height: 2.0em;
+            width: 300px;
+          }
+          :focus {
+            outline: 0;
+          }
+          .submit {
+            cursor: pointer;
+            font-family: FontAwesome;
+            border: none;
+            background: #000000;
+            color: #fff;
+            position: absolute;
+            width: 3.5em;
+            height: 3.0em;
+            right:0px;
+            top: -5px;
+            outline : none;
+          }
+        }
+      }
+      .post {
+        .content-link {
+          padding: 4px;
+          font-size: 25px;
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  .header-right {
+    width: 8vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    .user-options {
+      .user-nickname {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+      .logout {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+      .login {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+      .sign-up {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px){
+  .none1 {display:none}
+  .img {width:10vw}
+}
+
+@media screen and (max-width: 599px){
+  .none {display:none}
+  .img {width:10vw}
+}

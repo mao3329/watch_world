@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :article_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Articles.all
+    @articles = Article.all
   end
 
   def show
@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
   end
 
   def edit
@@ -32,6 +33,7 @@ class ArticlesController < ApplicationController
       redirect_to article_path(@article.id)
     else
       render :edit
+    end
   end
 
   def destroy
@@ -39,6 +41,7 @@ class ArticlesController < ApplicationController
       redirect_to root_path
     else
       render :show
+    end
   end
   private
 
