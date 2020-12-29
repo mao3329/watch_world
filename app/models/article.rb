@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :user
-  has_many :comments
-  has_many :article_tags
+  has_many :comments, dependent: :destroy
+  has_many :article_tags, dependent: :destroy
   has_many :tags, through: :article_tags
   has_one_attached :image
 
