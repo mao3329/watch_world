@@ -48,7 +48,6 @@
     <ul class="user-options">
       <% if user_signed_in? %>
 
-        <!-- 折り畳み展開ポインタ -->
         <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
           <a style="cursor:pointer;" class="user-nickname"><%= current_user.nickname %></a>
         </div>
@@ -56,10 +55,12 @@
         <div id="open" style="display:none;clear:both;">
           <li><%= link_to 'OPTIONS', "#", class: "user-nickname"  %></li>
 
+          <% if current_user.admin == true %>
+            <li><%= link_to 'ADMIN PAGE', "#", class: "logout" %></li>
+          <% end %>
+
           <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "logout"  %></li>
         </div>
-        <!--// 折り畳まれ部分 -->
-
         
       <% else %>
         <li><%= link_to 'LOGIN', new_user_session_path, method: :get, class: "login" %></li>

@@ -2,7 +2,7 @@
 
 <li class='list'>
 
-  <% if user_signed_in? && current_user.id == @article.user_id %>
+  <% if user_signed_in? && current_user.id == @article.user_id || current_user.admin == true %>
     <%= link_to '編集', edit_article_path(@article.id) %>
     <%= link_to '削除', article_path(@article.id), method: :delete %>
   <% end %>
