@@ -1,28 +1,27 @@
-<%= form_with model: @article, local: true do |f| %>
+<%= form_with url: articles_path, local: true do |f| %>
 
-  <%= render 'layouts/error_messages', model: f.object %>
-
-  <div class="img-upload">
-    <div class="img-field">
-      <%= f.file_field :image, placeholder: "記事画像"%>
-    </div>
+  <div class="img-field">
+    <%= f.file_field :image, placeholder: "記事画像"%>
+  </div>
 
   <div class="form-field" >
     <%= f.label :title, "記事タイトル" %>
     <%= f.text_field :title, calss: "field", autofocus: true %>
   </div>
 
-  <div class="foerm-field">
+  <div class="form-field">
+    <%= f.label :name, "タグ" %>
+    <%= f.text_field :name, class: "field" %>
+  </div>
+
+  <div class="form-field">
     <%= f.label :text, "本文" %>
     <%= f.text_field :text, class: "field" %>
   </div>
 
   <div class="actions">
-    <% if @article.title.blank? %>
-      <%= f.submit "投稿する", class: "submit-field" %>
-    <% else %>
-      <%= f.submit "編集する", class: "submit-field" %>
-    <% end %>
+    <%= f.submit "投稿する", class: "submit-field" %>
+
   </div>
 
 <% end %>
