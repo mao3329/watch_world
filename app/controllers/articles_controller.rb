@@ -16,8 +16,9 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
-    if @article.save
+    @article = ArticlesTag.new(article_params)
+    if @article.valid?
+      @article.save
       redirect_to root_path
     else
       render :new
