@@ -11,6 +11,12 @@
     <%= image_tag @article.image, class: "article-img" if @article.image.attached? %>
   </div>
 
+  <div calss='article-info'>
+    <h3 class='article-category'>
+      <%= @article.category.name %>
+    </h3>
+  </div>
+
   <div class='article-info'>
     <h3 class='article-tag'>
       <%@article.tags.each do |tag| %>

@@ -10,6 +10,10 @@
   </div>
 
   <div class="form-field">
+    <%= f.label :category_id, "カテゴリー" %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { class: "select-box" })%>
+
+  <div class="form-field">
     <%= f.label :name, "タグ" %>
     <%= f.text_field :name, class: "field" %>
   </div>
