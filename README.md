@@ -85,17 +85,6 @@
 - belongs_to :user
 
 
-## favorite_category
-
-| Column      | Type       | Options           |
-| ----------- | ---------- | ----------------- |
-| category_id | integer    | null: false       |
-| user        | references | foreign_key: true |
-
-### Association
-- belongs_to :user
-
-
 ## favorite_article テーブル
 
 | Column  | Type       | Options           |
@@ -117,15 +106,3 @@
 
 ### Association
 - belongs_to :article
-
-
-## favorite_comment テーブル
-
-| Column  | Type       | Options           |
-| ------- | ---------- | ----------------- |
-| user    | references | foreign_key: true |
-| comment | references | foreign_key: true |
-
-### Association
-- has_many :comments
-- belongs_to :user
