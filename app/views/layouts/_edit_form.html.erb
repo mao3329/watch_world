@@ -1,0 +1,31 @@
+<%= form_with model: @article, local: true do |f| %>
+
+  <div class="img-field">
+    <%= f.file_field :image, placeholder: "記事画像"%>
+  </div>
+
+  <div class="form-field" >
+    <%= f.label :title, "記事タイトル" %>
+    <%= f.text_field :title, calss: "field", autofocus: true %>
+  </div>
+
+  <div class="form-field">
+    <%= f.label :category_id, "カテゴリー" %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { class: "select-box" })%>
+
+  <div class="form-field">
+    <%= f.label :name, "タグ" %>
+    <%= f.text_field :name, class: "field" %>
+  </div>
+
+  <div class="form-field">
+    <%= f.label :text, "本文" %>
+    <%= f.text_field :text, class: "field" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集する", class: "submit-field" %>
+
+  </div>
+
+<% end %>
