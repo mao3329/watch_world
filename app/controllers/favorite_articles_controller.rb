@@ -5,12 +5,14 @@ class FavoriteArticlesController < ApplicationController
   def create
     if @article.user_id != current_user.id
       @favorite_article = FavoriteArticle.create(user_id: current_user.id, article_id: @article.id)
+      redirect_to article_path(@article.id)
     end
   end
 
   def destroy
     @favorite_article = FavoriteArticle.find_by(user_id: current_user.id, article_id: @article.id)
     @favorite_article.destroy
+    redirect_to article_path(@article.id)
   end
 
   private

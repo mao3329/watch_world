@@ -25,6 +25,12 @@
     </h3>
   </div>
 
+  <% if !FavoriteArticle.exists?(user_id: current_user.id, article_id: @article.id) %>
+    <%= link_to "お気に入り", article_favorite_articles_path(@article.id), method: :post %>
+    <% else %>
+    <%= link_to "お気に入り解除", article_favorite_article_path(@article.id), method: :delete %>
+  <% end %>
+
   <div class='article-info'>
     <h3 class='article-name'>
       <%= @article.title %>
