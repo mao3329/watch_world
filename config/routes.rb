@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :favorite_articles, only: [:create, :destroy]
   end
+
+  resources :relationships, only: [:create, :destroy]
 end
