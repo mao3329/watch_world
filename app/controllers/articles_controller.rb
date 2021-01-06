@@ -3,7 +3,11 @@ class ArticlesController < ApplicationController
   before_action :article_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+    if params[:category_id].blank?
+      @articles = Article.all
+    else
+      @articles = Article.where(category_id: params[:category_id])
+    end
   end
 
   def show
