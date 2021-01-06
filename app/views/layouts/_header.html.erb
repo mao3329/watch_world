@@ -53,6 +53,9 @@
         </div>
 
         <div id="open" style="display:none;clear:both;">
+
+          <li><%= link_to 'MY PAGE', user_path(current_user.id), class: "user-nickname"%></li>
+
           <li><%= link_to 'OPTIONS', "#", class: "user-nickname"  %></li>
 
           <% if current_user.admin == true %>
