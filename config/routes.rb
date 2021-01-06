@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users do
     get:favorite_articles, on: :collection
   end
+  resources :users, only: [:show]
   root to: 'articles#index'
   resources :articles do
     resources :comments, only: [:create]
