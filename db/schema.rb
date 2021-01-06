@@ -112,4 +112,5 @@ ActiveRecord::Schema.define(version: 2021_01_04_094436) do
   add_foreign_key "favorite_articles", "articles"
   add_foreign_key "favorite_articles", "users"
   add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "follow_id"
 end
