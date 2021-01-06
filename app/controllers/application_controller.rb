@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def after_sign_in_path_for(resource)
+    user_path(resource.id)
+  end
+
   def article_find
     @article = Article.find(params[:id])
   end

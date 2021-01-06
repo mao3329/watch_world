@@ -1,0 +1,37 @@
+<h1><%= @user.nickname%>'s Page</h1>
+<div class='user-info'>
+
+  <div class="nickname">
+    <h2>Nick Name</h2>
+    <%= @user.nickname %>
+  </div>
+
+  <div class='self-introduction'>
+    <h2>Introduce</h2>
+    <% if @user.self_introduction.blank? %>
+      ---
+    <% else %>
+      <%= @user.self_introduction %>
+    <% end %>
+  </div>
+
+  <div class="prefecture">
+    <h2>Prefecture</h2>
+    <% if @user.prefecture_id.blank? %>
+      ---
+    <% else %>
+      <%= @user.prefecture.name %>
+    <% end %>
+  </div>
+
+  <div class="birthday">
+    <h2>Birthday</h2>
+    <% if @user.birthday.blank? %>
+      ---
+    <% else %>
+      <%= @user.birthday %>
+    <% end %>
+  </div>
+
+
+</div>
