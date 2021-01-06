@@ -4,8 +4,9 @@ class Category < ActiveHash::Base
     { id: 2, name: 'Music' },
     { id: 3, name: 'MAG' },
     { id: 4, name: 'Sports' },
-    { id: 5, name: 'Science' },
-    { id: 6, name: 'Other' }
+    { id: 5, name: 'IT'},
+    { id: 6, name: 'Science' },
+    { id: 7, name: 'Other' }
   ]
 
   include ActiveHash::Associations
