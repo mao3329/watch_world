@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.where(category_id: params[:category_id])
     end
+    @tags = Tag.joins(:article_tags).group(:tag_id).order('count(article_id)desc')
   end
 
   def show
