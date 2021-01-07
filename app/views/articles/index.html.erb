@@ -45,22 +45,29 @@
         </div>
 
       <% else %>
-        <ul class="article-lists">
-          <li class='list'>
-              <%= link_to '#' do %>
-                <div class='article-img-contents'>
-                  <%= image_tag 'spicewolf.jpg', class: "article-img" %>
-                </div>
+        <div class="article-lists">
+          <div class='article-list'>
+              <div class='article-left'>
+                <%= image_tag 'spicewolf.jpg', class: "article-img" %>
+              </div>
 
-                <div class='article-info'>
-                  <h3 class='article-name'>
-                    ポートフォリオサイト
-                  </h3>
-                </div>
-              <% end %>
-            </li>
-          </ul>
+              <div class='article-right'>
+                <%= link_to "ポートフォリオサイト", '#', class: "article-title" %>
+              </div>
+            </div>
+          </div>
       <% end %>
+    </div>
+
+    <div class="main-right">
+      <%= link_to  'All Tags', tags_path, class: "alltags-link"%>
+      <div class="tag-lists">
+        <% if @tags.present? %>
+          <% @tags.each do |tag| %>
+            <%= link_to tag.name, "#", class: "tag-link" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
   </main>
