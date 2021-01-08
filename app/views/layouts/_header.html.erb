@@ -9,11 +9,11 @@
   <div class="header-center">
 
     <div class="contents">
-      <%= link_to "#", class: "content-link" do %>
+      <%= link_to articles_path(option: "A"), class: "content-link" do %>
         <%= image_tag('trend.png', class: "content-img img") %>
         <span class="content-name none">Trend</span>
       <% end %>
-      <%= link_to "#", class: "content-link" do %>
+      <%= link_to articles_path(option: "B"), class: "content-link" do %>
         <%= image_tag('new.png', class: "content-img img") %>
         <span class="content-name none">New</span>
       <% end %>
