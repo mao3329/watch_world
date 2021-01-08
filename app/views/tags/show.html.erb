@@ -1,0 +1,21 @@
+<%= render 'layouts/header'%>
+
+<%if @tag.articles.present?%>
+  <div class="article-lists">
+    <% @tag.articles.each do |article| %>
+      <div class="article-list">
+        <div class="article-left">
+          <%= image_tag article.image, class: "article-img" if article.image.attached? %>
+        </div>
+        <div class="article-right">
+          <%= link_to article.title, article_path(article.id), class: "article-title" %>
+          <div class="article-day">
+            <%= article.created_at %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<%else%>
+  <h3>初めての共有者になろう→<%= link_to '投稿する', article_path, class: "new-post"%>
+<%end%>
