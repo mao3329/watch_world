@@ -3,10 +3,14 @@ class ArticlesController < ApplicationController
   before_action :article_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:category_id].blank?
-      @articles = Article.all
-    else
+    if params[:category_id].present?
       @articles = Article.where(category_id: params[:category_id])
+    elsif params[:option] == "B"
+      @articles = Article.all.order('created_at DESC')
+    elsif params[:option] == "A"
+      @articles = Article.joins(:favorite_articles).group(:article_id).order('count(favorite_articles.user_id)desc')
+    else
+      @articles = Article.all
     end
     @tags = Tag.joins(:article_tags).group(:tag_id).order('count(article_id)desc')
   end

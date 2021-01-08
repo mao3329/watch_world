@@ -18,8 +18,8 @@
 
     <div class="main-center">
       <div class="contents-tags">
-        <%= link_to 'Trend', '#', class: "tag" %>
-        <%= link_to 'New', '#', class: "tag" %>
+        <%= link_to 'Trend', articles_path(option: "A"), class: "tag" %>
+        <%= link_to 'New', articles_path(option: "B"), class: "tag" %>
         <%= link_to 'Music', articles_path(category_id: 2), class: "tag" %>
         <%= link_to 'MAG', articles_path(category_id: 3), class: "tag" %>
         <%= link_to 'Sports', articles_path(category_id: 4), class: "tag" %>
@@ -64,7 +64,7 @@
       <div class="tag-lists">
         <% if @tags.present? %>
           <% @tags.each do |tag| %>
-            <%= link_to tag.name, tag_path(id: tag.id), class: "tag-link" %>
+            <%= link_to "#{tag.name}(#{tag.articles.length})", tag_path(id: tag.id), class: "tag-link" %>
           <% end %>
         <% end %>
       </div>
