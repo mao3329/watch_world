@@ -64,7 +64,7 @@
       <div class="tag-lists">
         <% if @tags.present? %>
           <% @tags.each do |tag| %>
-            <%= link_to tag.name, "#", class: "tag-link" %>
+            <%= link_to tag.name, tag_path(id: tag.id), class: "tag-link" %>
           <% end %>
         <% end %>
       </div>
