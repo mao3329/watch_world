@@ -55,6 +55,11 @@ class ArticlesController < ApplicationController
       render :show
     end
   end
+
+  def search
+    
+  end
+  
   private
 
   def article_params
