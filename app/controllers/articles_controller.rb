@@ -55,6 +55,12 @@ class ArticlesController < ApplicationController
       render :show
     end
   end
+
+  def search
+    @articles = Article.search(params[:search])
+    render 'index'
+  end
+
   private
 
   def article_params

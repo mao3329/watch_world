@@ -8,4 +8,7 @@ class Article < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 
+  def Article.search(search)
+    Article.where(['title LIKE ? OR text LIKE ?', "%#{search}%", "%#{search}%"])
+  end
 end
