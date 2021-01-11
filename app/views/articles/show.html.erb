@@ -5,11 +5,13 @@
   <%= @article.user.nickname %>
   <%= render 'relationships/follow_button', user: @article.user %>
 
-  <% if user_signed_in? && current_user.id == @article.user_id || current_user.admin == true %>
-    <%= link_to '編集', edit_article_path(@article.id) %>
-    <%= link_to '削除', article_path(@article.id), method: :delete %>
+  <% if user_signed_in?%>
+    <% if current_user.id == @article.user_id || current_user.admin == true %>
+      <%= link_to '編集', edit_article_path(@article.id) %>
+      <%= link_to '削除', article_path(@article.id), method: :delete %>
+    <% end %>
   <% end %>
-
+  
   <div class='article-img-content'>
     <%= image_tag @article.image, class: "article-img" if @article.image.attached? %>
   </div>
@@ -28,12 +30,13 @@
     </h3>
   </div>
 
-  <% if !FavoriteArticle.exists?(user_id: current_user.id, article_id: @article.id) %>
-    <%= link_to "お気に入り", article_favorite_articles_path(@article.id), method: :post %>
-    <% else %>
-    <%= link_to "お気に入り解除", article_favorite_article_path(@article.id), method: :delete %>
-  <% end %>
-
+  <% if user_signed_in? %>
+    <% if !FavoriteArticle.exists?(user_id: current_user.id, article_id: @article.id) %>
+      <%= link_to "お気に入り", article_favorite_articles_path(@article.id), method: :post %>
+      <% else %>
+      <%= link_to "お気に入り解除", article_favorite_article_path(@article.id), method: :delete %>
+    <% end %>
+  <% end%>
   <div class='article-info'>
     <h3 class='article-name'>
       <%= @article.title %>

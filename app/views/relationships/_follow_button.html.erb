@@ -1,4 +1,4 @@
-<% unless current_user == user %>
+<% if user_signed_in? && current_user != user %>
   <% if current_user.following?(user) %>
     <%= link_to "UnFollow", relationship_path(follow_id: user.id), method: :delete %>
   <% else %>
