@@ -18,7 +18,7 @@
           <div class='article-title'><%= article.title %></div>
         <% end %>
         <%= link_to article.user.nickname, user_path(article.user.id), class: 'article-user'%>
-        <%= article.created_at%>
+        <%= article.updated_at.strftime("%Y-%m-%d %H:%M") %>
         <%= link_to 'Edit', edit_article_path(article.id), class: 'article-edit'%>
         <%= link_to 'Delete', article_path(article.id), method: :delete, class: 'article-delete' %>
       </div>
