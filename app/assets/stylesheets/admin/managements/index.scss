@@ -1,0 +1,29 @@
+.article-lists-c {
+  display: flex;
+  flex-direction: column;
+  .article-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5vh 0.5vw;
+    .article-link {
+      display: flex;
+      align-items: center;
+      .article-img {
+        height: 100px;
+      }
+      .article-title {
+      text-decoration: none;
+      }
+    }
+    .article-user {
+      text-decoration: none;
+    }
+    .article-edit {
+      text-decoration: none;
+    }
+    .article-delete {
+      text-decoration: none;
+    }
+  }
+}
