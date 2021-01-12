@@ -5,11 +5,35 @@
   <div class="main-top">
     <% unless user_signed_in? %>
       <div class="introduction">
-        <%= image_tag 'introduction.png', class: "catchphrase" %>
-      </div>
-    <% else %>
-      <div class="introduction">
-        <%= image_tag 'introduction.png', class: "catchphrase" %>
+        <div class='introduction-top'>
+          <span class="introduction-top-t">世界を見てみよう</span>
+          <i class="fas fa-globe-asia"></i>
+        </div>
+        <div class='introduction-bottom'>
+          <div class='introduction-bottom-l'>
+            <div class='introduction-share'>
+              <span class="introduction-share-t">Share</span>
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <div class='introduction-comment'>
+              <span class="introduction-comment-t">Comment</span>
+              <i class="far fa-comment-alt"></i>
+            </div>
+            <div class='introduction-favorite'>
+              <span class="introduction-favorite-t">Favorite</span>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class='introduction-bottom-r'>
+            <%= link_to new_user_registration_path, class: 'introduction-signup' do%>
+              <span>
+              Go<br>
+              Sign Up
+              </span>
+              <i class="fas fa-user-plus"></i>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
@@ -31,13 +55,13 @@
         <div class="article-lists">
           <% @articles.each do |article| %>
             <div class="article-list">
-              <div class="article-left">
+              <div class="article-top">
                 <%= image_tag article.image, class: "article-img" if article.image.attached? %>
               </div>
-              <div class="article-right">
+              <div class="article-bottom">
                 <%= link_to article.title, article_path(article.id), class: "article-title" %>
                 <div class="article-day">
-                  <%= article.created_at %>
+                  <%= article.updated_at.strftime("%Y-%m-%d %H:%M") %>
                 </div>
               </div>
             </div>
