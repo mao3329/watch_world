@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root to: 'articles#index'
+
+  namespace :admin do
+    resources :managements, only: [:index, :show, :edit, :update, :destroy]
+  end
   get "search", to: 'articles#search'
   devise_for :users do
     get:favorite_articles, on: :collection
@@ -15,4 +19,5 @@ Rails.application.routes.draw do
   resources :tags, only: [:index, :show]
 
   resources :relationships, only: [:create, :destroy]
+
 end
