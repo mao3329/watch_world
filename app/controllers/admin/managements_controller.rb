@@ -1,6 +1,9 @@
 class Admin::ManagementsController < ApplicationController
   before_action :not_admin
-  before_action :set_article
+
+  def index
+    @articles = Article.all.order('created_at DESC').includes(:user)
+  end
 
   private
 
@@ -8,7 +11,4 @@ class Admin::ManagementsController < ApplicationController
     redirect_to root_path unless current_user.admin?
   end
 
-  def set_article
-    @article = Article.find(params[:id])
-  end
 end
