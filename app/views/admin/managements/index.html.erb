@@ -1,9 +1,36 @@
 <%= render 'layouts/header' %>
 
-<% if @articles.present? %>
-  <% @articles.each do |article| %>
-    <%= image_tag article.image %>
-    <%= article.title %>
-    <%= article.user.nickname%>
+<div class='users-lists'>
+  <span>All Users</span>
+  <% if @users.present?%>
+    <% @users.each do |user| %>
+      <%= link_to user.nickname, user_path(user.id), class: 'user-nickname'%>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+<div class='article-lists-c'>
+  <% if @articles.present? %>
+    <% @articles.each do |article| %>
+      <div class='article-list'>
+        <%= link_to article_path(article.id), class: 'article-link' do %>
+          <%= image_tag article.image, class: 'article-img' %>
+          <div class='article-title'><%= article.title %></div>
+        <% end %>
+        <%= link_to article.user.nickname, user_path(article.user.id), class: 'article-user'%>
+        <%= article.created_at%>
+        <%= link_to 'Edit', edit_article_path(article.id), class: 'article-edit'%>
+        <%= link_to 'Delete', article_path(article.id), method: :delete, class: 'article-delete' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class='tag-lists-c'>
+  <span>ALL Tags</span>
+  <% if @tags.present? %>
+    <% @tags.each do |tag| %>
+        <%= link_to "#{tag.name}(#{tag.articles.length})", tag_path(id: tag.id), class: "tag-link" %>
+    <% end %>
+  <% end %>
+</div>
