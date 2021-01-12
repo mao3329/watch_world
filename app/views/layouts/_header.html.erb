@@ -61,7 +61,7 @@
           <li><%= link_to 'OPTIONS', "#", class: "user-nickname"  %></li>
 
           <% if current_user.admin == true %>
-            <li><%= link_to 'ADMIN PAGE', "#", class: "logout" %></li>
+            <li><%= link_to 'ADMIN PAGE', admin_managements_path, class: "logout" %></li>
           <% end %>
 
           <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "logout"  %></li>

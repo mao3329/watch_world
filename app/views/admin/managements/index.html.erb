@@ -1,0 +1,9 @@
+<%= render 'layouts/header' %>
+
+<% if @articles.present? %>
+  <% @articles.each do |article| %>
+    <%= image_tag article.image %>
+    <%= article.title %>
+    <%= article.user.nickname%>
+  <% end %>
+<% end %>
