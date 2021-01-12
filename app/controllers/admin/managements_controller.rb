@@ -2,7 +2,9 @@ class Admin::ManagementsController < ApplicationController
   before_action :not_admin
 
   def index
+    @users = User.all.order('created_at DESC')
     @articles = Article.all.order('created_at DESC').includes(:user)
+    @tags = Tag.all.order('created_at DESC')
   end
 
   private
