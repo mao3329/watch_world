@@ -1,13 +1,52 @@
 .main-contents {
   max-width: 100vw;
-  padding: 2vh 1vw;
+  padding: 0 1vw;
   .main-top {
     width: 100%;
     .introduction {
       display: flex;
       justify-content: center;
-      .catchphrase {
-        width: 80%;
+      flex-direction: column;
+      align-items: center;
+      .introduction-top {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .introduction-top-t {
+          font-size: 5vw;
+          font-family: 'Noto Sans JP', sans-serif;
+        }
+        .fas {
+          font-size: 5vw;
+        }
+      }
+      .introduction-bottom {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        .introduction-bottom-l {
+          width: 50%;
+          font-size: 5vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+        }
+        .introduction-bottom-r {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 5vw;
+          .introduction-signup {
+            color: #000000;
+            text-decoration: none;
+          }
+          .fas {
+            font-size: 7vw;
+          }
+        }
       }
     }
   }
@@ -44,10 +83,11 @@
         flex-wrap: wrap;
         .article-list {
           width: calc(95% / 3);
-          height: 30vh;
+          height: 45vh;
           border: 2px solid #333333;
           background-color: #ffffff;
           display: flex;
+          flex-direction: column;
           align-items: center;
           padding: 2px;
           margin: 0.5vh;
@@ -57,13 +97,14 @@
           @media (max-width: 599px){
             width: 100%;
           }
-          .article-left {
-            width: 20%;
+          .article-top {
+            width: 100%;
             .article-img {
-              height: 8vh;
+              width: 100%;
+              object-fit:none;
             }
           }
-          .article-right{
+          .article-bottom {
             width: 80%;
             .article-title {
               align-items: center;
