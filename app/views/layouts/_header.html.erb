@@ -11,11 +11,11 @@
     <div class="contents">
       <%= link_to articles_path(option: "A"), class: "content-link" do %>
         <i class="fas fa-poll"></i>
-        <span class="content-name none">Trend</span>
+        <h2 class="content-name none">Trend</h2>
       <% end %>
       <%= link_to articles_path(option: "B"), class: "content-link" do %>
         <i class="far fa-clock"></i>
-        <span class="content-name none">New</span>
+        <h2 class="content-name none">New</h2>
       <% end %>
 
       <div class="search">
@@ -29,7 +29,7 @@
         <div class="day-search none none1">
           <%= link_to "#", class: "content-link" do %>
             <i class="far fa-clock"></i>
-            <span class="content-name none">Day Search</span>
+            <h2 class="content-name none">Day Search</h2>
           <% end %>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="post">
         <%= link_to new_article_path, class: "content-link" do %>
           <i class="far fa-comment-alt"></i>
-          <span class="content-name">New Share</span>
+          <h2 class="content-name">New Share</h2>
         <% end %>
       </div>
 
