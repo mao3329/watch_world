@@ -1,49 +1,46 @@
 <%= render 'layouts/header' %>
 
-<li class='list'>
+<div class='article'>
 
-  <%= @article.user.nickname %>
-  <%= render 'relationships/follow_button', user: @article.user %>
-
-  <% if user_signed_in? %>
-    <% if current_user.id == @article.user_id || current_user.admin == true %>
-      <%= link_to '編集', edit_article_path(@article.id) %>
-      <%= link_to '削除', article_path(@article.id), method: :delete %>
-    <% end %>
-  <% end %>
-
-  <div class='article-img-content'>
-    <%= image_tag @article.image, class: "article-img" if @article.image.attached? %>
+  <div class='article-user-contents'>
+    <h2><%= link_to @article.user.nickname, user_path(@article.user.id), class: 'article-user-nickname' %></h2>
+    <%= render 'relationships/follow_button', user: @article.user %>
   </div>
+
+  <div class='article-edit-delete'>
+    <% if user_signed_in? %>
+      <% if current_user.id == @article.user_id || current_user.admin == true %>
+        <%= link_to '編集', edit_article_path(@article.id), class: 'article-menu' %>
+        <%= link_to '削除', article_path(@article.id), method: :delete, class: 'article-menu' %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <h1 class='article-title'>
+    <%= @article.title %>
+    <% if user_signed_in? %>
+      <% if !FavoriteArticle.exists?(user_id: current_user.id, article_id: @article.id) %>
+        <%= link_to article_favorite_articles_path(@article.id), method: :post do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      <% else %>
+        <%= link_to "お気に入り解除", article_favorite_article_path(@article.id), method: :delete %>
+      <% end %>
+    <% end %>
+  </h1>
 
   <div calss='article-info'>
-    <h3 class='article-category'>
-      <%= @article.category.name %>
-    </h3>
+    <h2 class='article-category'><%=link_to @article.category.name, articles_path(category_id: @article.category.id) %></h2>
+    <%@article.tags.each do |tag| %>
+      <h2 class='article-tag'><%= link_to "##{tag.name}", tag_path(tag.id) %></h2>
+    <%end%>
   </div>
 
-  <div class='article-info'>
-    <h3 class='article-tag'>
-      <%@article.tags.each do |tag| %>
-        #<%=tag.name%>
-      <%end%>
-    </h3>
+  <div class='article-img-contents'>
+    <%= image_tag @article.image, class: 'article-img' %>
   </div>
 
-  <% if user_signed_in? %>
-    <% if !FavoriteArticle.exists?(user_id: current_user.id, article_id: @article.id) %>
-      <%= link_to "お気に入り", article_favorite_articles_path(@article.id), method: :post %>
-      <% else %>
-      <%= link_to "お気に入り解除", article_favorite_article_path(@article.id), method: :delete %>
-    <% end %>
-  <% end %>
-
-  <div class='article-info'>
-    <h3 class='article-name'>
-      <%= @article.title %>
-    </h3>
-  </div>
-  <div class='article-info'>
+  <div class='article-contents'>
     <h3 class='article-text'>
       <%= @article.text %>
     </h3>
@@ -71,4 +68,4 @@
     <% end %>
 
   <% end %>
-</li> 
+</div> 

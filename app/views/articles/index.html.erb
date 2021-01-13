@@ -5,11 +5,35 @@
   <div class="main-top">
     <% unless user_signed_in? %>
       <div class="introduction">
-        <%= image_tag 'introduction.png', class: "catchphrase" %>
-      </div>
-    <% else %>
-      <div class="introduction">
-        <%= image_tag 'introduction.png', class: "catchphrase" %>
+        <div class='introduction-top'>
+          <h1 class="introduction-top-t">世界を見てみよう</h1>
+          <i class="fas fa-globe-asia"></i>
+        </div>
+        <div class='introduction-bottom'>
+          <div class='introduction-bottom-l'>
+            <div class='introduction-share'>
+              <span class="introduction-share-t">Share</span>
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <div class='introduction-comment'>
+              <span class="introduction-comment-t">Comment</span>
+              <i class="far fa-comment-alt"></i>
+            </div>
+            <div class='introduction-favorite'>
+              <span class="introduction-favorite-t">Favorite</span>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class='introduction-bottom-r'>
+            <%= link_to new_user_registration_path, class: 'introduction-signup' do%>
+              <span>
+              Go<br>
+              Sign Up
+              </span>
+              <i class="fas fa-user-plus"></i>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
@@ -18,26 +42,30 @@
 
     <div class="main-center">
       <div class="contents-tags">
-        <%= link_to 'Trend', articles_path(option: "A"), class: "tag" %>
-        <%= link_to 'New', articles_path(option: "B"), class: "tag" %>
-        <%= link_to 'Music', articles_path(category_id: 2), class: "tag" %>
-        <%= link_to 'MAG', articles_path(category_id: 3), class: "tag" %>
-        <%= link_to 'Sports', articles_path(category_id: 4), class: "tag" %>
-        <%= link_to 'IT', articles_path(category_id: 5), class: "tag" %>
-        <%= link_to 'Science', articles_path(category_id: 6), class: "tag" %>
-        <%= link_to 'Other', articles_path(category_id: 7), class: "tag" %>
+        <h2><%= link_to 'Trend', articles_path(option: "A"), class: "tag" %></h2>
+        <h2><%= link_to 'New', articles_path(option: "B"), class: "tag" %></h2>
+        <h2><%= link_to 'Music', articles_path(category_id: 2), class: "tag" %></h2>
+        <h2><%= link_to 'MAG', articles_path(category_id: 3), class: "tag" %></h2>
+        <h2><%= link_to 'Sports', articles_path(category_id: 4), class: "tag" %></h2>
+        <h2><%= link_to 'IT', articles_path(category_id: 5), class: "tag" %></h2>
+        <h2><%= link_to 'Science', articles_path(category_id: 6), class: "tag" %></h2>
+        <h2><%= link_to 'Other', articles_path(category_id: 7), class: "tag" %></h2>
       </div>
       <% if @articles.present?%>
         <div class="article-lists">
           <% @articles.each do |article| %>
             <div class="article-list">
-              <div class="article-left">
-                <%= image_tag article.image, class: "article-img" if article.image.attached? %>
+              <div class="article-top">
+                <%= link_to article_path(article.id) do %>
+                 <%= image_tag article.image, class: 'article-img' %>
+                <%end%>
               </div>
-              <div class="article-right">
-                <%= link_to article.title, article_path(article.id), class: "article-title" %>
-                <div class="article-day">
-                  <%= article.created_at %>
+              <div class="article-bottom">
+                <h2 class="article-title1"><%= link_to article.title, article_path(article.id), class: 'article-title' %></h2>
+                <%= link_to article.text, article_path(article.id), class: "article-text" %>
+                <div class="article-day-user">
+                  <%= link_to article.user.nickname, user_path(article.user.id), class: 'article-user' %>
+                  <%= article.updated_at.strftime("%Y-%m-%d %H:%M") %>
                 </div>
               </div>
             </div>
@@ -60,7 +88,7 @@
     </div>
 
     <div class="main-right">
-      <%= link_to  'All Tags', tags_path, class: "alltags-link"%>
+      <h2 class='alltags-links'><%= link_to  'All Tags', tags_path, class: "alltags-link"%></h2>
       <div class="tag-lists">
         <% if @tags.present? %>
           <% @tags.each do |tag| %>

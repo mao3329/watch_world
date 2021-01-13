@@ -31,8 +31,16 @@
         .content-img {
           width: 2vw;
         }
+        .fas {
+          color: white;
+          font-size: 25px;
+        }
+        .far {
+          color: white;
+          font-size: 25px;
+        }
         .content-name {
-          font-size: 2vw;
+          font-size: 24px;
           color: white;
           margin-left: 2px;
         }
@@ -95,7 +103,7 @@
     justify-content: center;
     .user-options {
       .user-nickname {
-        font-size: 20px;
+        font-size: 24px;
         color: white;
         text-decoration: none;
       }
