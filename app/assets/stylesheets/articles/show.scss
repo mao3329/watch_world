@@ -1,0 +1,42 @@
+.article {
+  width: 100%;
+  .article-user-contents {
+    margin-top: 1vh 0;
+    display: flex;
+    .article-user-nickname {
+      margin-left: 15%;
+      text-decoration: none;
+      color: #353535;
+    }
+  }
+  .article-title {
+    text-align: center;
+  }
+  .article-info {
+    display: flex;
+    .article-category {
+
+    }
+  }
+  .article-img-contents {
+    width: 100%;
+    margin: 1vh 0;
+    .article-img {
+      width: 70%;
+      margin: 0 15%;
+      background-size: contain;
+      border: 2px solid #353535;
+    }
+  }
+  .article-edit-delete {
+    .article-menu {
+      text-decoration: none;
+    }
+  }
+  .article-contents {
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid #353535;
+    background-color: #ffffff;
+  }
+}
