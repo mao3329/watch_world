@@ -4,13 +4,17 @@
   <div class="article-lists">
     <% @tag.articles.each do |article| %>
       <div class="article-list">
-        <div class="article-left">
-          <%= image_tag article.image, class: "article-img" if article.image.attached? %>
+        <div class="article-top">
+          <%= link_to article_path(article.id) do %>
+            <%= image_tag article.image, class: 'article-img' %>
+          <%end%>
         </div>
-        <div class="article-right">
-          <%= link_to article.title, article_path(article.id), class: "article-title" %>
-          <div class="article-day">
-            <%= article.created_at %>
+        <div class="article-bottom">
+          <h2 class="article-title1"><%= link_to article.title, article_path(article.id), class: 'article-title' %></h2>
+          <%= link_to article.text, article_path(article.id), class: "article-text" %>
+          <div class="article-day-user">
+            <%= link_to article.user.nickname, user_path(article.user.id), class: 'article-user' %>
+            <%= article.updated_at.strftime("%Y-%m-%d %H:%M") %>
           </div>
         </div>
       </div>
