@@ -4,19 +4,19 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:category_id].present?
-      @articles = Article.where(category_id: params[:category_id])
+      @articles = Article.where(category_id: params[:category_id]).includes(:user)
     elsif params[:option] == "B"
-      @articles = Article.all.order('created_at DESC')
+      @articles = Article.all.order('created_at DESC').includes(:user)
     elsif params[:option] == "A"
-      @articles = Article.joins(:favorite_articles).group(:article_id).order('count(favorite_articles.user_id)desc')
+      @articles = Article.joins(:favorite_articles).group(:article_id).order('count(favorite_articles.user_id)desc').includes(:user)
     else
-      @articles = Article.all
+      @articles = Article.all.includes(:user)
     end
-    @tags = Tag.joins(:article_tags).group(:tag_id).order('count(article_id)desc')
+    @tags = Tag.joins(:article_tags).group(:tag_id).order('count(article_id)desc').includes(:articles)
   end
 
   def show
-    @comments = @article.comments
+    @comments = @article.comments.includes(:user)
     @comment = Comment.new
   end
 
