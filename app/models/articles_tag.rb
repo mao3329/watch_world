@@ -13,8 +13,7 @@ class ArticlesTag
 
   def save
     article = Article.create(title: title, text: text, image: image, category_id: category_id, user_id: user_id)
-    tag = Tag.where(name: name).first_or_initialize
-    tag.save
+    tag = Tag.find_or_create_by(name: name)
 
     ArticleTag.create(article_id: article.id, tag_id: tag.id)
   end

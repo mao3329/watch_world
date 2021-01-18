@@ -6,16 +6,18 @@
 
   <div class="form-field" >
     <%= f.label :title, "記事タイトル" %>
-    <%= f.text_field :title, calss: "field", autofocus: true %>
+    <%= f.text_field :title, class: "field", autofocus: true %>
   </div>
 
   <div class="form-field">
     <%= f.label :category_id, "カテゴリー" %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { class: "select-box" })%>
+    <%= @article.category.name%>
 
   <div class="form-field">
     <%= f.label :name, "タグ" %>
-    <%= f.text_field :name, class: "field" %>
+      <%@article.tags.each do |tag| %>
+        <%= tag.name %>
+      <%end%>
   </div>
 
   <div class="form-field">

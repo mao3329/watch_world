@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @article = ArticlesTag.new
   end
 
   def create
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.update(article_params)
+    if @article.update(update_article_params)
       redirect_to article_path(@article.id)
     else
       render :edit
@@ -65,5 +65,9 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.permit(:title, :text, :image, :name, :category_id).merge(user_id: current_user.id)
+  end
+
+  def update_article_params
+    params.require(:article).permit(:title, :text, :image).merge(user_id: current_user.id)
   end
 end
