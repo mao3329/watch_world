@@ -74,65 +74,6 @@
           text-decoration: none;
         }
       }
-      .article-lists {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        .article-list {
-          width: calc(96% / 3);
-          height: 45vh;
-          border: 2px solid #333333;
-          background-color: #ffffff;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 2px;
-          margin: 0.5vh 0;
-          @media (max-width: 1024px){
-          }
-          @media (max-width: 599px){
-          }
-          .article-top {
-            width: 100%;
-            height: 50%;
-            .article-img {
-              height: 100%;
-              width: 99%;
-              border: 1px solid #333333;
-              object-fit: cover;
-            }
-          }
-          .article-bottom {
-            width: 90%;
-            height: 50%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            .article-title1 {
-              text-align: center;
-              .article-title {
-                color: #2355a5;
-                text-decoration: none;
-              }
-            }
-            .article-text {
-              color: #2355a5;
-              text-decoration: none;
-            }
-            .article-day-user {
-              position: absolute;
-              right: 0;
-              bottom: 0;
-              .article-user {
-                color: #2355a5;
-                text-decoration: none;
-              }
-            }
-          }
-        }
-      }
     }
     .main-right {
       width: 10%;
@@ -142,33 +83,6 @@
       align-items: center;
       justify-content: right;
       flex-direction: column;
-      .alltags-links {
-        width: 100%;
-        .alltags-link {
-          height: 7vh;
-          color: white;
-          text-decoration: none;
-          background-color: #333333;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 5px;
-        }
-      }
-      .tag-lists {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        border: 2px solid #333333;
-        background-color: #ffffff;
-        .tag-link {
-          background-color: #ffffff;
-          text-decoration: none;
-          color: #2355a5;
-        }
-      }
     }
   } 
 }
