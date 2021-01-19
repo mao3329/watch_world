@@ -1,0 +1,38 @@
+.main-contents {
+  width: 80vw;
+  margin: 0 auto;
+  .main-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .article-form {
+      width: 100%;
+      .title-field {
+        margin: 10px 0;
+        .title-form {
+          outline: none;
+          width: 100%;
+          height: 30px;
+        }
+      }
+      .info-field {
+        display: flex;
+        justify-content: space-around;
+      }
+      .text-field {
+        .text-form {
+          width: 100%;
+          min-height: 60vh;
+          margin: 10px;
+        }
+      }
+      .actions {
+        text-align: right;
+        .submit-field {
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}

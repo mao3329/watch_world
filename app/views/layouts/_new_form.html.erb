@@ -1,31 +1,36 @@
-<%= form_with url: articles_path, local: true do |f| %>
 
-  <div class="img-field">
-    <%= f.file_field :image, placeholder: "記事画像"%>
-  </div>
+<div class="main-form">
+  <%= form_with url: articles_path, class: "article-form", local: true do |f| %>
 
-  <div class="form-field" >
-    <%= f.label :title, "記事タイトル" %>
-    <%= f.text_field :title, calss: "field", autofocus: true %>
-  </div>
+    <div class="title-field" >
+      <%= f.text_field :title, placeholder: "Title", class: "title-form", autofocus: true %>
+    </div>
 
-  <div class="form-field">
-    <%= f.label :category_id, "カテゴリー" %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { class: "select-box" })%>
+    <div class="info-field">
 
-  <div class="form-field">
-    <%= f.label :name, "タグ" %>
-    <%= f.text_field :name, class: "field" %>
-  </div>
+      <div class="img-field">
+        <%= f.label :image, "IMAGE"%>
+        <%= f.file_field :image, placeholder: "記事画像"%>
+      </div>
 
-  <div class="form-field">
-    <%= f.label :text, "本文" %>
-    <%= f.text_field :text, class: "field" %>
-  </div>
+      <div class="category-field">
+        <%= f.label :category_id, "Category" %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { class: "select-box" })%>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "投稿する", class: "submit-field" %>
+      <div class="tag-field">
+        <%= f.label :name, "Tag" %>
+        <%= f.text_field :name, class: "field" %>
+      </div>
+    </div>
 
-  </div>
+    <div class="text-field">
+      <%= f.text_area :text, placeholder: "Text", class: "text-form" %>
+    </div>
 
-<% end %>
+    <div class="actions">
+      <%= f.submit "Share", class: "submit-field" %>
+    </div>
+
+  <% end %>
+</div>
