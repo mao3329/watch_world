@@ -1,11 +1,27 @@
 <%= render 'layouts/header'%>
 
-<%if @tags.present?%>
-  <div class="tags-list">
-    <% @tags.each do |tag|%>
-      <%= link_to tag.name, tag_path(tag.id), class: "tag-name"%>
-    <%end%>
+<main class="main-contents">
+
+  <div class="main-middle">
+
+    <div class="main-center">
+      <div class="main-center-top-t">
+        <h2 class="all-tag-name">All Tags</h2>
+      </div>
+      
+      <%if @tags.present?%>
+        <div class="tags-list">
+          <% @tags.each do |tag|%>
+            <h2><%= link_to tag.name, tag_path(tag.id), class: "tag-name"%></h2>
+          <%end%>
+        </div>
+      <%else%>
+        <h3>初めての共有者になろう→<%= link_to '投稿する', article_path, class: "new-post"%>
+      <%end%>
+    </div>
+
+    <div class="main-right">
+      <%= render 'layouts/tags'%>
+    </div>
   </div>
-<%else%>
-  <h3>初めての共有者になろう→<%= link_to '投稿する', article_path, class: "new-post"%>
-<%end%>
+</main>
