@@ -1,0 +1,8 @@
+<% if @tags.present? %>
+  <h2 class='alltags-links'><%= link_to  'All Tags', tags_path, class: "alltags-link"%></h2>
+  <div class="tag-lists">
+    <% @tags.each do |tag| %>
+      <%= link_to "#{tag.name}(#{tag.articles.length})", tag_path(id: tag.id), class: "tag-link" %>
+    <% end %>
+  </div>
+<% end %>
