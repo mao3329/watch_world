@@ -1,25 +1,20 @@
 <%= render 'layouts/header'%>
 
-<%if @tag.articles.present?%>
-  <div class="article-lists">
-    <% @tag.articles.each do |article| %>
-      <div class="article-list">
-        <div class="article-top">
-          <%= link_to article_path(article.id) do %>
-            <%= image_tag article.image, class: 'article-img' %>
-          <%end%>
-        </div>
-        <div class="article-bottom">
-          <h2 class="article-title1"><%= link_to article.title, article_path(article.id), class: 'article-title' %></h2>
-          <%= link_to article.text, article_path(article.id), class: "article-text" %>
-          <div class="article-day-user">
-            <%= link_to article.user.nickname, user_path(article.user.id), class: 'article-user' %>
-            <%= article.updated_at.strftime("%Y-%m-%d %H:%M") %>
-          </div>
-        </div>
+<main class="main-contents">
+
+  <div class="main-middle">
+
+    <div class="main-center">
+      <div class="main-center-top">
+        <h2 class="tag-name"><%=@tag.name%></h2>
       </div>
-    <% end %>
+      
+      <%= render 'layouts/articles'%>
+
+    </div>
+
+    <div class="main-right">
+      <%= render 'layouts/tags'%>
+    </div>
   </div>
-<%else%>
-  <h3>初めての共有者になろう→<%= link_to '投稿する', article_path, class: "new-post"%>
-<%end%>
+</main>
