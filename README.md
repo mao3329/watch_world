@@ -1,20 +1,20 @@
-# name
-Watch World
-![gif](https://i.gyazo.com/9e64145c1eea34c4d38ccac671b8b1ea.gif)
+![gif](https://i.gyazo.com/192196c3bdbf249e0c71875d1417af01.png)
 
+# Watch World
 
 ## Overview
 記事投稿アプリ
 
-## Requirement
-- macOS
-- Ruby 2.6.5
-- Ruby on Rails 6
-- MySQL 0.4.4
-- Docker 20.10.0
+## URL
+https://watch-world-0730.herokuapp.com/
+
+## Test Acount
+email: test@test.com
+password: test01
+
 
 ## Usage
-記事の閲覧、投稿ができます
+記事の閲覧、投稿
 
 ## Features
 - 記事の投稿
@@ -24,10 +24,18 @@ Watch World
 - カテゴリ別、タグ別に記事の表示
 - 記事お気に入り
 
+## Requirement
+- macOS
+- Ruby 2.6.5
+- Ruby on Rails 6
+- MySQL 0.4.4
+- Docker 20.10.0
+
+
 ## Licence
 Free
 
-# テーブル設計
+# Table
 
 ## user
 
