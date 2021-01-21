@@ -4,7 +4,7 @@
   <% else %>
     <%= form_with url: relationships_path do |f| %>
       <%= f.hidden_field :follow_id, value: user.id %>
-      <%= f.submit 'Follow', class: 'btn btn-prymary btn-block' %>
+      <%= f.submit 'Subs', class: 'btn btn-prymary btn-block' %>
     <% end %>
   <% end %>
 <% end %>
