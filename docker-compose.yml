@@ -24,9 +24,6 @@ services:
       - db
     stdin_open: true
     tty: true
-    environment:
-      BASIC_AUTH_USER: ${BASIC_AUTH_USER:-default}
-      BASIC_AUTH_PASSWORD: ${BASIC_AUTH_PASSWORD:-default}
 volumes:
   mysql-data:
     driver: local
