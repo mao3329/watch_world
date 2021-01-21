@@ -1,21 +1,30 @@
 .article {
   width: 100%;
-  .article-user-contents {
-    margin-top: 1vh 0;
-    display: flex;
-    .article-user-nickname {
-      margin-left: 15%;
-      text-decoration: none;
-      color: #353535;
-    }
-  }
   .article-title {
     text-align: center;
+    .fas {
+      color: #6b6060;
+    }
+    .yellow {
+      color: yellow;
+    }
   }
   .article-info {
     display: flex;
+    .article-user-contents {
+      margin-top: 1vh 0;
+      display: flex;
+      .article-user-nickname {
+        margin-left: 15%;
+        text-decoration: none;
+        color: #353535;
+      }
+    }
     .article-category {
-
+      text-decoration: none;
+    }
+    .article-tag {
+      text-decoration: none;
     }
   }
   .article-img-contents {
@@ -38,5 +47,34 @@
     margin: 0 auto;
     border: 2px solid #353535;
     background-color: #ffffff;
+  }
+  .comments {
+    width: 80%;
+    margin: 20px auto;
+    border: 2px solid #333333;
+    background-color: white;
+    padding: 1vh 1vw;
+    .comments-lists {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #333333;
+      .comment-content {
+        display: flex;
+        justify-content: space-between;
+        .comment-right {
+          display: flex;
+          margin-left: 10px;
+          .comment-user {
+            margin-right: 10px;
+            text-decoration: none;
+          }
+          .comment-created-at {
+          }
+        }
+      }
+    }
+    .comment-form {
+      text-align: right;
+    }
   }
 }

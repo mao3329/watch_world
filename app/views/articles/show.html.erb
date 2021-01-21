@@ -2,10 +2,20 @@
 
 <div class='article'>
 
-  <div class='article-user-contents'>
-    <h2><%= link_to @article.user.nickname, user_path(@article.user.id), class: 'article-user-nickname' %></h2>
-    <%= render 'relationships/follow_button', user: @article.user %>
-  </div>
+  <h1 class='article-title'>
+    <%= @article.title %>
+    <% if user_signed_in? %>
+      <% if !FavoriteArticle.exists?(user_id: current_user.id, article_id: @article.id) %>
+        <%= link_to article_favorite_articles_path(@article.id), method: :post do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+      <% else %>
+        <%= link_to article_favorite_article_path(@article.id), method: :delete do %>
+          <i class="fas fa-star yellow"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </h1>
 
   <div class='article-edit-delete'>
     <% if user_signed_in? %>
@@ -16,23 +26,16 @@
     <% end %>
   </div>
 
-  <h1 class='article-title'>
-    <%= @article.title %>
-    <% if user_signed_in? %>
-      <% if !FavoriteArticle.exists?(user_id: current_user.id, article_id: @article.id) %>
-        <%= link_to article_favorite_articles_path(@article.id), method: :post do %>
-          <i class="far fa-star"></i>
-        <% end %>
-      <% else %>
-        <%= link_to "お気に入り解除", article_favorite_article_path(@article.id), method: :delete %>
-      <% end %>
-    <% end %>
-  </h1>
+  <div class='article-info'>
 
-  <div calss='article-info'>
-    <h2 class='article-category'><%=link_to @article.category.name, articles_path(category_id: @article.category.id) %></h2>
+    <div class='article-user-contents'>
+      <h2><%= link_to @article.user.nickname, user_path(@article.user.id), class: 'article-user-nickname' %></h2>
+      <%= render 'relationships/follow_button', user: @article.user %>
+    </div>
+
+    <h2><%=link_to @article.category.name, articles_path(category_id: @article.category.id), class: "article-category" %></h2>
     <%@article.tags.each do |tag| %>
-      <h2 class='article-tag'><%= link_to "##{tag.name}", tag_path(tag.id) %></h2>
+      <h2><%= link_to "##{tag.name}", tag_path(tag.id), class: "article-tag" %></h2>
     <%end%>
   </div>
 
@@ -46,26 +49,30 @@
     </h3>
   </div>
 
-  <% if user_signed_in? && current_user.id != @article.user_id %>
-    <%= form_with model: @comment, url: article_comments_path(@article.id), local: true do |f| %>
-      <%= f.text_field :text %>
-      <%= f.submit%>
-    <% end %>
-  <% end %>
-
-
-
-  <% if @comments.present?%>
-
-    <% @comments.each do |comment| %>
-      <li class='list'>
-        <div class='comment-info'>
-          <h3 class='comment-name'>
-            <%= comment.text %>
-          </h3>
-        </div>
-      </li>
+  <div class="comments">
+    <h2>All Comments</h1>
+    <% if @comments.present?%>
+      <ul class=comments-lists>
+        <% @comments.each do |comment|%>
+          <li class="comment-content">
+            <div class="comment-text"><%= comment.text %></div>
+            <div class="comment-right">
+              <%= link_to comment.user.nickname, user_path(comment.user.id), class: "comment-user" %>
+              <div class="comment-created-at"><%= comment.created_at.strftime("%Y-%m-%d %H:%M")%></div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
 
-  <% end %>
+    <div class="comment-form">
+      <% if user_signed_in? %>
+        <%= form_with model: @comment, url: article_comments_path(@article.id), local: true do |f| %>
+          <%= f.text_field :text %>
+          <%= f.submit "Comment"%>
+        <% end %>
+      <% end%>
+    </div>
+
+  </div>
 </div> 
