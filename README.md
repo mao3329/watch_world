@@ -13,14 +13,21 @@ password: test01
 
 ###　画像の投稿
 右上のNew Shareから記事の投稿
-![png](https://i.gyazo.com/ef34ebbf7e04e60988e278405d0bf97f.png)
+<p align="center">
+  <img src="https://i.gyazo.com/ef34ebbf7e04e60988e278405d0bf97f.png" width=80%>
+</p>
 
 ### コメントの投稿
 記事詳細画面から、下のコメントフォームでコメント
-![png](https://i.gyazo.com/6eb9fd3e5036e81a7442f5a6649fd192.jpg)
+<p align="center">
+  <img src="https://i.gyazo.com/6eb9fd3e5036e81a7442f5a6649fd192.jpg" width=80%>
+</p>
 
 ### タグ別、カテゴリ別表示
-![png](https://i.gyazo.com/b88747b1f3bca983b9c6856fea63c10e.jpg)
+<p align="center">
+  <img src="https://i.gyazo.com/b88747b1f3bca983b9c6856fea63c10e.jpg">
+</p>
+
 
 ## Requirement
 - macOS
