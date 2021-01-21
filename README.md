@@ -1,6 +1,35 @@
+# name
+Watch World
+![gif](https://i.gyazo.com/9e64145c1eea34c4d38ccac671b8b1ea.mp4)
+
+
+## Overview
+記事投稿アプリ
+
+## Requirement
+- macOS
+- Ruby 2.6.5
+- Ruby on Rails 6
+- MySQL 0.4.4
+- Docker 20.10.0
+
+## Usage
+記事の閲覧、投稿ができます
+
+## Features
+- 記事の投稿
+- 記事の閲覧
+- コメント投稿
+- タイトル、本文から記事の検索
+- カテゴリ別、タグ別に記事の表示
+- 記事お気に入り
+
+## Licence
+Free
+
 # テーブル設計
 
-## user テーブル
+## user
 
 | Column             | Type    | Options                   |
 | ------------------ | ------- | ------------------------- |
@@ -23,7 +52,7 @@
 - has_many :favorite_comments
 
 
-## article テーブル
+## article
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
@@ -40,7 +69,7 @@
 - belongs_to :favorite_article
 
 
-## comment テーブル
+## comment
 
 | Column  | Type       | Options           |
 | ------- | ---------- | ----------------- |
@@ -53,7 +82,7 @@
 - belongs_to :article
 - belongs_to :favorite_comment
 
-## tag テーブル
+## tag
 
 | Column | Type       | Options                       |
 | ------ | ---------- | ----------------------------- |
@@ -85,7 +114,7 @@
 - belongs_to :user
 
 
-## favorite_article テーブル
+## favorite_article
 
 | Column  | Type       | Options           |
 | ------- | ---------- | ----------------- |
@@ -97,7 +126,7 @@
 - belongs_to :user
 
 
-## article_category テーブル
+## article_category
 
 | Column      | Type       | Options           |
 | ----------- | ---------- | ----------------- |
