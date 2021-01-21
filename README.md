@@ -1,6 +1,6 @@
 # name
 Watch World
-![gif](https://i.gyazo.com/9e64145c1eea34c4d38ccac671b8b1ea.mp4)
+![gif](https://i.gyazo.com/9e64145c1eea34c4d38ccac671b8b1ea.gif)
 
 
 ## Overview
