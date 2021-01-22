@@ -11,7 +11,7 @@ password: test01
 
 ## できること
 
-###　画像の投稿
+### 画像の投稿
 右上のNew Shareから記事の投稿
 <p align="center">
   <img src="https://i.gyazo.com/ef34ebbf7e04e60988e278405d0bf97f.png" width=80%>
