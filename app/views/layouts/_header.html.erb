@@ -50,11 +50,11 @@
     <ul class="user-options">
       <% if user_signed_in? %>
 
-        <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
+        <%#div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
           <a style="cursor:pointer;" class="user-nickname"><%= current_user.nickname %></a>
-        </div>
+        <%#/div>
 
-        <div id="open" style="display:none;clear:both;">
+        <%#div id="open" style="display:none;clear:both;">
 
           <li><%= link_to 'MY PAGE', user_path(current_user.id), class: "user-nickname"%></li>
 
@@ -65,7 +65,7 @@
           <%# end %>
 
           <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "logout"  %></li>
-        </div>
+        <%#/div%>
         
       <% else %>
         <li><%= link_to 'LOGIN', new_user_session_path, method: :get, class: "login" %></li>
