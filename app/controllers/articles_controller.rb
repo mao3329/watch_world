@@ -4,11 +4,11 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:category_id].present?
-      @articles = Article.where(category_id: params[:category_id]).includes(:user)
+      @articles = Article.category_search(params[:category_id])
     elsif params[:option] == "B"
-      @articles = Article.all.order(Arel.sql('created_at DESC')).includes(:user)
+      @articles = Article.sort_by_newest
     elsif params[:option] == "A"
-      @articles = Article.joins(:favorite_articles).group(:article_id).order(Arel.sql('count(favorite_articles.user_id)desc')).includes(:user)
+      @articles = Article.sort_by_favorites
     else
       @articles = Article.all.includes(:user)
     end
