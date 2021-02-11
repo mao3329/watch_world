@@ -6,13 +6,13 @@ class ArticlesController < ApplicationController
     if params[:category_id].present?
       @articles = Article.where(category_id: params[:category_id]).includes(:user)
     elsif params[:option] == "B"
-      @articles = Article.all.order('created_at DESC').includes(:user)
+      @articles = Article.all.order(Arel.sql('created_at DESC')).includes(:user)
     elsif params[:option] == "A"
-      @articles = Article.joins(:favorite_articles).group(:article_id).order('count(favorite_articles.user_id)desc').includes(:user)
+      @articles = Article.joins(:favorite_articles).group(:article_id).order(Arel.sql('count(favorite_articles.user_id)desc')).includes(:user)
     else
       @articles = Article.all.includes(:user)
     end
-    @tags = Tag.joins(:article_tags).group(:tag_id).order('count(article_id)desc').includes(:articles)
+    @tags = Tag.joins(:article_tags).group(:tag_id).order(Arel.sql('count(article_id)desc')).includes(:articles)
   end
 
   def show
