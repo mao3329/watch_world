@@ -8,18 +8,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 WORKDIR /myapp
 
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+ADD Gemfile /myapp/Gemfile
+ADD Gemfile.lock /myapp/Gemfile.lock
 
 RUN gem install bundler
 RUN bundle install
 
-COPY . /myapp
+ADD . /myapp
 
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
-
-EXPOSE 3000
-
-CMD ["rails", "server", "-b", "0.0.0.0"]
+RUN mkdir -p tmp/sockets
