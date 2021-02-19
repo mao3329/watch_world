@@ -3,7 +3,7 @@
 # Watch World
 
 ## URL
-https://watch-world-0730.herokuapp.com/
+https://www.watchworld0730.tk/
 
 ## Test Acount
 email: test@test.com
