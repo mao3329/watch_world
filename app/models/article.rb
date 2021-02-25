@@ -15,7 +15,7 @@ class Article < ApplicationRecord
   end
 
   def Article.category_search(category_id)
-    Article.where(category_id).includes(:user)
+    Article.where(category_id: category_id).includes(:user)
   end
 
   def Article.sort_by_newest
